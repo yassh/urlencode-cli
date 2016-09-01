@@ -1,0 +1,27 @@
+{
+  "name": "urlencode-cli",
+  "version": "1.0.0",
+  "bin": {
+    "urlencode": "./bin/index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/yassh/urlencode-cli/issues"
+  },
+  "dependencies": {
+    "yargs": "^5.0.0"
+  },
+  "devDependencies": {
+    "fixpack": "^2.3.1"
+  },
+  "homepage": "https://github.com/yassh/urlencode-cli#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yassh/urlencode-cli.git"
+  },
+  "scripts": {
+    "fixpack": "fixpack",
+    "test": "./test.sh"
+  }
+}
