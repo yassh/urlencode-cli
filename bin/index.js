@@ -6,8 +6,9 @@ const argv = require('yargs')
   .help('help').alias('help', 'h')
   .usage('Usage: urlencode <string>')
   .example('urlencode foo/bar@baz', 'print foo%2Fbar%40baz')
-  .example('urlencode foo bar baz', 'print foo%20bar%20baz')
+  .example('urlencode foo/bar baz@qux', 'print foo%2Fbar baz%40qux')
+  .example('urlencode "foo/bar baz@qux"', 'print foo%2Fbar%20baz%40qux')
   .argv;
 
-const string = argv._.join(' ');
-console.log(encodeURIComponent(string));
+const str = argv._.map((v) => encodeURIComponent(v)).join(' ');
+console.log(str);

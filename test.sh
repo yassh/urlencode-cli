@@ -6,7 +6,7 @@ function test() {
   local ACTUAL=$(eval "./bin/index.js $1")
   local TESTCASE="INPUT: $INPUT, EXPECTED: $EXPECTED, ACTUAL: $ACTUAL"
 
-  if [ $EXPECTED = $ACTUAL ]; then
+  if [ "$EXPECTED" = "$ACTUAL" ]; then
     echo "✓ $TESTCASE"
     return 0
   else
@@ -17,4 +17,5 @@ function test() {
 
 test 'foo_bar-baz' 'foo_bar-baz' || exit 1
 test 'foo/bar@baz' 'foo%2Fbar%40baz' || exit 1
-test 'foo bar baz' 'foo%20bar%20baz' || exit 1
+test 'foo/bar baz@qux' 'foo%2Fbar baz%40qux' || exit 1
+test '"foo/bar baz@qux"' 'foo%2Fbar%20baz%40qux' || exit 1
